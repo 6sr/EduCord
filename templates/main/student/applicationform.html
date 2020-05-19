@@ -1,0 +1,62 @@
+{% extends 'main/student/base.html' %}
+{% load static %}
+
+{% block studentcontent %}
+        <h2>Applications</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Application Id</th>
+                        <th>Subject</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in applicationforms %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.subject }}</td>
+                        <td>{{ i.status }}</td>
+                        <td>{{ i.applied_on }}</td>
+                        <td>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="application_id" value="{{ i.id }}" hidden>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    View
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="applicant" value="{{applicant}}" hidden>
+            <input type="text" name="status" value="Under Verification" hidden>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" class="form-control" name="department" placeholder="Enter Department" value="{{application_instance.department}}" {% if application_instance %}disabled{% endif %}>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" name="subject" placeholder="Enter Subject" value="{{application_instance.subject}}" {% if application_instance %}disabled{% endif %}>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea type="text" class="form-control" name="content" placeholder="Enter Content" rows="5" {% if application_instance %}disabled{% endif %}>{{application_instance.content}}</textarea>
+            </div>
+            {% if not application_instance %}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            {% endif %}
+        </form>
+{% endblock %}

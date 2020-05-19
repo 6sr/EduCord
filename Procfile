@@ -1,0 +1,1 @@
+web: gunicorn EduCord.wsgi

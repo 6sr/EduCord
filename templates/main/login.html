@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-2">Welcome to EduCord</h1>
+            <p class="lead text-right">Leading Student Record Management System ...</p>
+        </div>
+    </div>
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Roll Number</label>
+                <input type="text" class="form-control" name="username" placeholder="Enter Roll Number">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Enter Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</a>
+        </form>
+    </div>
+    {% include 'main/footer.html' %}
+{% endblock %}
+
+

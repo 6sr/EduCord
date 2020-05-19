@@ -1,0 +1,92 @@
+{% extends 'main/student/base.html' %}
+{% load static %}
+
+{% block studentcontent %}
+        <h2>Time Table</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>08:00 Hrs</th>
+                        <th>09:00 Hrs</th>
+                        <th>10:00 Hrs</th>
+                        <th>11:00 Hrs</th>
+                        <th>12:00 Hrs</th>
+                        <th>13:00 Hrs</th>
+                        <th>14:00 Hrs</th>
+                        <th>15:00 Hrs</th>
+                        <th>16:00 Hrs</th>
+                        <th>17:00 Hrs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Mon</th>
+                        <td>{{ time_table_instance.Mon.08 }}</td>
+                        <td>{{ time_table_instance.Mon.09 }}</td>
+                        <td>{{ time_table_instance.Mon.10 }}</td>
+                        <td>{{ time_table_instance.Mon.11 }}</td>
+                        <td>{{ time_table_instance.Mon.12 }}</td>
+                        <td>{{ time_table_instance.Mon.13 }}</td>
+                        <td>{{ time_table_instance.Mon.14 }}</td>
+                        <td>{{ time_table_instance.Mon.15 }}</td>
+                        <td>{{ time_table_instance.Mon.16 }}</td>
+                        <td>{{ time_table_instance.Mon.17 }}</td>
+                    </tr>
+                    <tr>
+                        <th>Tue</th>
+                        <td>{{ time_table_instance.Tue.08 }}</td>
+                        <td>{{ time_table_instance.Tue.09 }}</td>
+                        <td>{{ time_table_instance.Tue.10 }}</td>
+                        <td>{{ time_table_instance.Tue.11 }}</td>
+                        <td>{{ time_table_instance.Tue.12 }}</td>
+                        <td>{{ time_table_instance.Tue.13 }}</td>
+                        <td>{{ time_table_instance.Tue.14 }}</td>
+                        <td>{{ time_table_instance.Tue.15 }}</td>
+                        <td>{{ time_table_instance.Tue.16 }}</td>
+                        <td>{{ time_table_instance.Tue.17 }}</td>
+                    </tr>
+                    <tr>
+                        <th>Wed</th>
+                        <td>{{ time_table_instance.Wed.08 }}</td>
+                        <td>{{ time_table_instance.Wed.09 }}</td>
+                        <td>{{ time_table_instance.Wed.10 }}</td>
+                        <td>{{ time_table_instance.Wed.11 }}</td>
+                        <td>{{ time_table_instance.Wed.12 }}</td>
+                        <td>{{ time_table_instance.Wed.13 }}</td>
+                        <td>{{ time_table_instance.Wed.14 }}</td>
+                        <td>{{ time_table_instance.Wed.15 }}</td>
+                        <td>{{ time_table_instance.Wed.16 }}</td>
+                        <td>{{ time_table_instance.Wed.17 }}</td>
+                    </tr>
+                    <tr>
+                        <th>Thur</th>
+                        <td>{{ time_table_instance.Thur.08 }}</td>
+                        <td>{{ time_table_instance.Thur.09 }}</td>
+                        <td>{{ time_table_instance.Thur.10 }}</td>
+                        <td>{{ time_table_instance.Thur.11 }}</td>
+                        <td>{{ time_table_instance.Thur.12 }}</td>
+                        <td>{{ time_table_instance.Thur.13 }}</td>
+                        <td>{{ time_table_instance.Thur.14 }}</td>
+                        <td>{{ time_table_instance.Thur.15 }}</td>
+                        <td>{{ time_table_instance.Thur.16 }}</td>
+                        <td>{{ time_table_instance.Thur.17 }}</td>
+                    </tr>
+                    <tr>
+                        <th>Fri</th>
+                        <td>{{ time_table_instance.Fri.08 }}</td>
+                        <td>{{ time_table_instance.Fri.09 }}</td>
+                        <td>{{ time_table_instance.Fri.10 }}</td>
+                        <td>{{ time_table_instance.Fri.11 }}</td>
+                        <td>{{ time_table_instance.Fri.12 }}</td>
+                        <td>{{ time_table_instance.Fri.13 }}</td>
+                        <td>{{ time_table_instance.Fri.14 }}</td>
+                        <td>{{ time_table_instance.Fri.15 }}</td>
+                        <td>{{ time_table_instance.Fri.16 }}</td>
+                        <td>{{ time_table_instance.Fri.17 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+{% endblock %}

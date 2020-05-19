@@ -1,0 +1,41 @@
+{% extends 'main/student/base.html' %}
+{% load static %}
+
+{% block studentcontent %}
+        <h2>Fee Payment</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Description</th>
+                        <th>Amount(in INR)</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in feepayments %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ i.fees.description }}</td>
+                        <td><i class="fas fa-rupee-sign"></i> {{ i.fees.amount }}</td>
+                        <td>{{ i.fees.start_date }} - {{ i.fees.end_date }}</td>
+                        <td>{{ i.get_status_display }}</td>
+                        <td>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="feepaymentstatus_id" value="{{i.id}}" hidden>
+                                <button type="submit" class="btn btn-primary btn-sm" {% if i.status == 'p' %}disabled{% endif %}>
+                                    Pay
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endblock %}
+

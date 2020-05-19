@@ -1,0 +1,91 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Student
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <style>
+        .table td, th {
+            text-align: center;   
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link {% if personalinfo %}active{% endif %}" href="{% url 'personalinfo' %}">
+                                <i class="fas fa-user-edit"></i>
+                                Personal Info <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if timetable %}active{% endif %}" href="{% url 'timetable' %}">
+                                <i class="fas fa-calendar-alt"></i>
+                                Time Table
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if attendance %}active{% endif %}" href="{% url 'attendance' %}">
+                                <i class="fas fa-user-check"></i>
+                                Attedance
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if feepayment %}active{% endif %}" href="{% url 'feepayment' %}">
+                                <i class="fas fa-receipt"></i>
+                                Fee Payments
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if applicationform %}active{% endif %}" href="{% url 'applicationform' %}">
+                                <i class="fas fa-file"></i>
+                                Applications
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Student Name</h1>
+            <div class="btn-toolbar mb-2 mb-md-0" id="lolol">
+                <div class="btn-group mr-2">
+                    <a href="{% url 'personalinfo' %}" class="btn btn-sm btn{% if not personalinfo %}-outline{% endif %}-secondary">
+                        <i class="fas fa-user-edit"></i>
+                        Personal Info
+                    </a>
+                    <a href="{% url 'timetable' %}" class="btn btn-sm btn{% if not timetable %}-outline{% endif %}-secondary">
+                        <i class="fas fa-calendar-alt"></i>
+                        Time Table
+                    </a>
+                    <a href="{% url 'attendance' %}" class="btn btn{% if not attendance %}-outline{% endif %}-secondary">
+                        <i class="fas fa-user-check"></i>
+                        Attedance
+                    </a>
+                    <a href="{% url 'feepayment' %}" class="btn btn{% if not feepayment %}-outline{% endif %}-secondary">
+                        <i class="fas fa-receipt"></i>
+                        Fee Payments
+                    </a>
+                    <a href="{% url 'applicationform' %}" class="btn btn{% if not applicationform %}-outline{% endif %}-secondary">
+                        <i class="fas fa-file"></i>
+                        Applications
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {% block studentcontent %}{% endblock %}
+
+    </main>
+{% endblock %}

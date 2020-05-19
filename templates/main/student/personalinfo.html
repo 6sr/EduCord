@@ -1,0 +1,77 @@
+{% extends 'main/student/base.html' %}
+{% load static %}
+
+{% block studentcontent %}
+        <h2>Personal Info</h2>
+        <div class="table-responsive">
+            <img src="{{ student_instance.image }}" class="float-right rounded img-thumbnail img-fluid" style="max-height: 10rem">
+            <table class="table col-4 table-borderless">
+                <tbody>
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>{{ student_instance.roll_no }}</th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>{{ user.first_name }} {{ user.last_name }}</th>
+                    </tr>
+                    <tr>
+                        <th>DOB</th>
+                        <th>{{ student_instance.dob }}</th>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <th>{{ student_instance.get_gender_display }}</th>
+                    </tr>
+                    <tr>
+                        <th>Branch</th>
+                        <th>{{ student_instance.branch }}</th>
+                    </tr>
+                    <tr>
+                        <th>College</th>
+                        <th>{{ student_instance.institute.name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <th>{{ student_instance.phone }}</th>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <th>{{ user.email }}</th>
+                    </tr>
+                    <tr>
+                        <th><h5>Parent Details</h5></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>Father Name</th>
+                        <th>{{ student_instance.father_name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Father Phone</th>
+                        <th>{{ student_instance.father_phone }}</th>
+                    </tr>
+                    <tr>
+                        <th>Father Email</th>
+                        <th>{{ student_instance.father_email }}</th>
+                    </tr>
+                    <tr>
+                        <th>Mother Name</th>
+                        <th>{{ student_instance.mother_name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Mother Phone</th>
+                        <th>{{ student_instance.mother_phone }}</th>
+                    </tr>
+                    <tr>
+                        <th>Mother Email</th>
+                        <th>{{ student_instance.mother_email }}</th>
+                    </tr>
+                    <tr>
+                        <th>Parents Annual Income</th>
+                        <th><i class="fas fa-rupee-sign"></i> {{ student_instance.annual_income }}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+{% endblock %}
