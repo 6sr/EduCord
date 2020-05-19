@@ -162,24 +162,37 @@ def feepayment(request):
     return render(request, 'main/student/feepayment.html', context)
 
 def applicationform(request):
+    print("applicationform view 1")
     student = models.Student.objects.get(roll_no=request.user.get_username())
+    print("applicationform view 2")
 
     context = {
         "student": True,
         "applicant": student.id,
         "applicationform": True,
     }
+    print("applicationform view 3")
     if request.method == 'POST':
+        print("applicationform view 4")
         if request.POST['application_id']:
             # View
+            print("applicationform view 5")
             application_instance = models.Application.objects.get(id = request.POST['application_id'])
+            print("applicationform view 6")
             context['application_instance'] = application_instance
+            print("applicationform view 7")
         else:
             # Create
+            print("applicationform view 8")
             application = forms.ApplicationForm(request.POST)
+            print("applicationform view 9")
             if application.is_valid():
+                print("applicationform view 10")
                 application.save()
+                print("applicationform view 11")
 
+    print("applicationform view 12")
     context["applicationforms"] = models.Application.objects.filter(applicant_id=student.id)
+    print("applicationform view 13")
     return render(request, 'main/student/applicationform.html', context)
 
