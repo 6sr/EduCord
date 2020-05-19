@@ -106,20 +106,17 @@ def timetable(request):
                 curr = "-"
             day_table[str(start_time)] = curr
         context['time_table_instance'][days[i]] = day_table
-    print(context)
     return render(request, 'main/student/timetable.html', context)
 
 def attendance(request):
-    # https://stackoverflow.com/questions/9847213/how-do-i-get-the-day-of-week-given-a-date
-    # https://stackoverflow.com/questions/33354933/django-check-if-date-from-post-is-between-two-dates-from-model
-    student = models.Student.objects.get(roll_no=request.user.get_username())
     context = {
         "student": True,
         "attendance": True,
         "attendance_instance": {},
     }
-    from datetime import datetime, timedelta
     if request.method == 'POST':
+        student = models.Student.objects.get(roll_no=request.user.get_username())
+        from datetime import datetime, timedelta
         date = datetime.strptime(request.POST['start_date'], "%Y-%m-%d").date()
         end_date = datetime.strptime(request.POST['end_date'], "%Y-%m-%d").date()
         dates = []

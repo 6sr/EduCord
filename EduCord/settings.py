@@ -1,5 +1,5 @@
 import os
-# import django_heroku
+import django_heroku
 from decouple import config
 import dj_database_url
 
@@ -131,5 +131,5 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
